@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InnerHTML Example</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="con">
+        <h2>ClassList.length</h2>
+        <p id="LENG" class="cl1 cl2 cl3 cl4 cl5 cl6">Presione el botón</p>
+        <button id="CCT">¿Cuántas clases tiene?</button>
+    </div>
+    <script>
+        function setHTML(elementId, newContent) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.innerHTML = newContent;
+            } else {
+                console.error(`Elemento con id "${elementId}" no encontrado.`);
+            }
+        }
+
+        const CCT = document.getElementById("CCT");
+        const LENG = document.getElementById("LENG");
+
+        CCT.addEventListener("click", function() {
+            const cantidad = LENG.classList.length;
+            setHTML("LENG", `El elemento cuenta con: ${cantidad} clases`);
+        });
+    </script>
+</body>
+</html>
